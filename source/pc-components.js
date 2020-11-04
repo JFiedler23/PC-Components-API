@@ -37,23 +37,26 @@ module.exports = {
     let items = await ScrapeHandler.scrape(urls, store, search_term);
     return items;
   },
-  motherboards: async function(store="all", search_term="none"){
-    console.log("Getting motherboards....");
+  amd_motherboards: async function(store="all", search_term="none"){
+    console.log("Getting AMD motherboards....");
 
     const urls = [{
         "store": "newegg",
         "url": 'https://www.newegg.com/AMD-Motherboards/SubCategory/ID-22/Page-1?Tid=7625&PageSize=96'
-    },
-    {
+    }]
+
+    let items = await ScrapeHandler.scrape(urls, store, search_term);
+    return items;
+  },
+  intel_motherboards: async function(store="all", search_term="none"){
+    console.log("Getting intel motherboards....");
+
+    const urls = [{
         "store": "newegg",
         "url": "https://www.newegg.com/Intel-Motherboards/SubCategory/ID-280/Page-1?Tid=7627&PageSize=96"
     }];
 
-    const urlCounts = {
-      "newegg": 2
-    }
-
-    let items = await ScrapeHandler.scrape(urls, store, search_term, urlCounts);
+    let items = await ScrapeHandler.scrape(urls, store, search_term);
     return items;
   },
   power: async function(store="all", search_term="none"){
@@ -77,5 +80,49 @@ module.exports = {
 
     let items = await ScrapeHandler.scrape(urls, store, search_term);
     return items;
+  },
+  case_fans: async function(store="all", search_term="none"){
+    console.log("Getting case fans....");
+
+    const urls = [{
+        "store": "newegg",
+        "url": 'https://www.newegg.com/Case-Fans/SubCategory/ID-573/Page-1?Tid=7998&PageSize=96'
+    }]
+
+    let items = await ScrapeHandler.scrape(urls, store, search_term);
+    return items;
+  },
+  cpu_fans: async function(store="all", search_term="none"){
+    console.log("Getting cpu fans....");
+
+    const urls = [{
+        "store": "newegg",
+        "url": 'https://www.newegg.com/CPU-Fans-Heatsinks/SubCategory/ID-574/Page-2?Tid=8000&PageSize=96'
+    }]
+
+    let items = await ScrapeHandler.scrape(urls, store, search_term);
+    return items;
+  },
+  hdd: async function(store="all", search_term="none"){
+    console.log("Getting hard drives....");
+
+    const urls = [{
+        "store": "newegg",
+        "url": 'https://www.newegg.com/Desktop-Internal-Hard-Drives/SubCategory/ID-14/Page-1?Tid=167523&PageSize=96'
+    }]
+
+    let items = await ScrapeHandler.scrape(urls, store, search_term);
+    return items;
+  },
+  ssd: async function(store="all", search_term="none"){
+    console.log("Getting SSDs....");
+
+    const urls = [{
+        "store": "newegg",
+        "url": 'https://www.newegg.com/Internal-SSDs/SubCategory/ID-636/Page-1?Tid=11693&PageSize=96'
+    }]
+
+    let items = await ScrapeHandler.scrape(urls, store, search_term);
+    return items;
   }
-}
+};
