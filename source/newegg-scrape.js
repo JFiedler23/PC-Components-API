@@ -34,7 +34,6 @@ module.exports = {
         //getting all item titles
         $(item).find('.item-title').each(function(index, title){
           itemTitles.push($(title).text());
-
         });
 
         //getting all item prices
