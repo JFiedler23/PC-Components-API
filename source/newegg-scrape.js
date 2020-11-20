@@ -2,7 +2,7 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 
 module.exports = {
-  getItems: async function(url){
+  getItems: async function(url, part_type){
   	try {
       console.log("Getting items from Newegg....")
       let items = [];
@@ -63,7 +63,8 @@ module.exports = {
             "title": itemTitles[i],
             "price": itemPrices[i],
             "store": "newegg",
-            "img_url": imgURLs[i]
+            "img_url": imgURLs[i],
+            "type": part_type
           }
           items.push(item);
         }

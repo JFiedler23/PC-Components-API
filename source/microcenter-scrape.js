@@ -1,7 +1,7 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 
-async function getItems($){
+async function getItems($, part_type){
   let items = [];
   const itemContainer = $('.product_wrapper');
 
@@ -26,7 +26,8 @@ async function getItems($){
       "title": titles[i],
       "price": prices[i],
       "store": "microcenter",
-      "img_url": imgURLs[i]
+      "img_url": imgURLs[i],
+      "type": part_type
     }
     items.push(item);
   }
@@ -34,7 +35,7 @@ async function getItems($){
 }
 
 module.exports = {
-  getItems: async function(url){
+  getItems: async function(url, part_type){
   	try {
       console.log("Getting items from Micro Center....");
       //initial request to get number of pages
@@ -53,13 +54,13 @@ module.exports = {
           const { data } = await axios.get(temp);
       		const $ = cheerio.load(data);
 
-          items = items.concat(await getItems($));
+          items = items.concat(await getItems($, part_type));
         }
         return items;
       }
       //if there is only 1 page
       else{
-        return await getItems($);
+        return await getItems($, part_type);
       }
   	}
     catch (error) {
