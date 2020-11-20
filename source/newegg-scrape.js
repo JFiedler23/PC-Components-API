@@ -30,6 +30,7 @@ module.exports = {
         //used to store titles and prices
         const itemTitles = [];
         const itemPrices = [];
+        const imgURLs = [];
 
         //getting all item titles
         $(item).find('.item-title').each(function(index, title){
@@ -52,12 +53,17 @@ module.exports = {
           }
         });
 
+        $(item).find('.item-img').find('img').each(function(index, url){
+          imgURLs.push($(url).attr('src'));
+        });
+
         //creating item objects and pushing them to items array
         for(let i = 0; i < itemPrices.length; i++){
           let item = {
             "title": itemTitles[i],
             "price": itemPrices[i],
-            "store": "newegg"
+            "store": "newegg",
+            "img_url": imgURLs[i]
           }
           items.push(item);
         }

@@ -5,15 +5,31 @@ async function getItems($){
   let items = [];
   const itemContainer = $('.product_wrapper');
 
-  $(itemContainer).find('.details').each(function(index, details){
-    let item = {
-      "title": $(details).find("a").text(),
-      "price": $(details).find("[itemprop='price']").text(),
-      "store": "microcenter"
-    }
+  let imgURLs = [];
+  let titles = [];
+  let prices = [];
+  let i = 0;
 
-    items.push(item);
+  //getting item image urls
+  $(itemContainer).find('.SearchResultProductImage').each(function(index, url){
+    imgURLs.push($(url).attr('src'));
   });
+
+  //getting title and price
+  $(itemContainer).find('.details').each(function(index, details){
+    titles.push($(details).find("a").text());
+    prices.push($(details).find("[itemprop='price']").text());
+  });
+
+  for(let i = 0; i < titles.length; i++){
+    let item = {
+      "title": titles[i],
+      "price": prices[i],
+      "store": "microcenter",
+      "img_url": imgURLs[i]
+    }
+    items.push(item);
+  }
   return items;
 }
 
@@ -36,7 +52,7 @@ module.exports = {
           //making another request for each page
           const { data } = await axios.get(temp);
       		const $ = cheerio.load(data);
-          
+
           items = items.concat(await getItems($));
         }
         return items;

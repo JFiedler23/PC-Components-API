@@ -2,13 +2,13 @@ const Newegg_Scrape = require('./newegg-scrape.js');
 const Micro_Center_Scrape = require('./microcenter-scrape.js');
 
 async function getAllStores(urls){
-  var items = {};
+  let items = [];
   for(let i = 0; i < urls.length; i++){
     if(urls[i].store === "newegg"){
-      items.newegg = await Newegg_Scrape.getItems(urls[i].url);
+      items = [...await Newegg_Scrape.getItems(urls[i].url)];
     }
     else if(urls[i].store === "microcenter"){
-      items.microcenter = await Micro_Center_Scrape.getItems(urls[i].url);
+      items = [...items, ...await Micro_Center_Scrape.getItems(urls[i].url)];
     }
   }
   return items;
