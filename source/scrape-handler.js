@@ -14,16 +14,23 @@ async function getAllStores(urls, part_type){
   return items;
 }
 
+function search(search_term){
+  return (item) => {
+    let title = item.title.toLowerCase();
+
+    if(title.indexOf(search_term) > -1){
+      return item;
+    }
+  } 
+}
+
 module.exports = {
   scrape: async function(urls, part_type, store="all", search_term="none"){
-    //items object
-    var items = {};
-    var neweggItems = [];
 
     switch(store){
       case "all":
-        items = await getAllStores(urls, part_type);
-        return items
+        let items = await getAllStores(urls, part_type);
+        return (search_term === "none") ? items : items.filter(search(search_term));
         break;
     }
   }

@@ -15,8 +15,7 @@ module.exports = {
         "url": "https://www.microcenter.com/search/search_results.aspx?N=4294966937&NTK=all&page=1&cat=Video-Cards-:-MicroCenter"
     }];
     //calling scrape function to obtain list of items
-    let items = await ScrapeHandler.scrape(urls, "gpu", store, search_term);
-    return items;
+    return await ScrapeHandler.scrape(urls, "gpu", store, search_term);
   },
   cpu: async function(store="all", search_term="none"){
     console.log("Getting CPUs....");
@@ -30,8 +29,7 @@ module.exports = {
         "url": "https://www.microcenter.com/search/search_results.aspx?N=4294966995+4294819840+4294820689&sortby=match&rpp=96&page=1"
     }];
 
-    let items = await ScrapeHandler.scrape(urls, "cpu", store, search_term);
-    return items;
+    return await ScrapeHandler.scrape(urls, "cpu", store, search_term);
   },
   memory: async function(store="all", search_term="none"){
     console.log("Getting memory items....");
@@ -45,8 +43,7 @@ module.exports = {
         "url": "https://www.microcenter.com/search/search_results.aspx?N=4294966965&NTK=all&page=1&cat=Desktop-Memory/RAM-:-MicroCenter"
     }];
 
-    let items = await ScrapeHandler.scrape(urls, "memory", store, search_term);
-    return items;
+    return await ScrapeHandler.scrape(urls, "memory", store, search_term);
   },
   amd_motherboards: async function(store="all", search_term="none"){
     console.log("Getting AMD motherboards....");
@@ -60,8 +57,7 @@ module.exports = {
         "url": "https://www.microcenter.com/search/search_results.aspx?N=4294966996+4294818892&NTK=all&cat=AMD-:-Motherboards-:-MicroCenter&page=1"
     }];
 
-    let items = await ScrapeHandler.scrape(urls, "mb-amd", store, search_term);
-    return items;
+    return await ScrapeHandler.scrape(urls, "mb-amd", store, search_term);
   },
   intel_motherboards: async function(store="all", search_term="none"){
     console.log("Getting intel motherboards....");
@@ -75,8 +71,7 @@ module.exports = {
         "url": "https://www.microcenter.com/search/search_results.aspx?N=4294966996+4294818573&sortby=match&rpp=96&page=1"
     }];
 
-    let items = await ScrapeHandler.scrape(urls, "mb-intel", store, search_term);
-    return items;
+    return await ScrapeHandler.scrape(urls, "mb-intel", store, search_term);
   },
   power: async function(store="all", search_term="none"){
     console.log("Getting power supplies....");
@@ -90,8 +85,7 @@ module.exports = {
         "url": "https://www.microcenter.com/search/search_results.aspx?N=4294966654&sortby=match&rpp=96&page=1"
     }];
 
-    let items = await ScrapeHandler.scrape(urls, "psu", store, search_term);
-    return items;
+    return await ScrapeHandler.scrape(urls, "psu", store, search_term);
   },
   cases: async function(store="all", search_term="none"){
     console.log("Getting pc cases....");
@@ -105,8 +99,7 @@ module.exports = {
         "url": "https://www.microcenter.com/search/search_results.aspx?N=4294964318&NTK=all&page=1&cat=Computer-Cases-:-MicroCenter"
     }];
 
-    let items = await ScrapeHandler.scrape(urls, "case", store, search_term);
-    return items;
+    return await ScrapeHandler.scrape(urls, "case", store, search_term);
   },
   case_fans: async function(store="all", search_term="none"){
     console.log("Getting case fans....");
@@ -120,8 +113,7 @@ module.exports = {
         "url": "https://www.microcenter.com/search/search_results.aspx?N=4294966926&sortby=match&rpp=96&page=1"
     }];
 
-    let items = await ScrapeHandler.scrape(urls, "case-fan", store, search_term);
-    return items;
+    return await ScrapeHandler.scrape(urls, "case-fan", store, search_term);
   },
   cpu_fans: async function(store="all", search_term="none"){
     console.log("Getting cpu fans....");
@@ -135,8 +127,7 @@ module.exports = {
         "url": "https://www.microcenter.com/search/search_results.aspx?N=4294966927&sortby=match&rpp=96&page=1"
     }];
 
-    let items = await ScrapeHandler.scrape(urls, "cpu-fan", store, search_term);
-    return items;
+    return await ScrapeHandler.scrape(urls, "cpu-fan", store, search_term);
   },
   hdd: async function(store="all", search_term="none"){
     console.log("Getting hard drives....");
@@ -150,8 +141,7 @@ module.exports = {
         "url": "https://www.microcenter.com/search/search_results.aspx?N=4294945772&sortby=match&rpp=96&page=1"
     }];
 
-    let items = await ScrapeHandler.scrape(urls, "hdd", store, search_term);
-    return items;
+    return await ScrapeHandler.scrape(urls, "hdd", store, search_term);
   },
   ssd: async function(store="all", search_term="none"){
     console.log("Getting SSDs....");
@@ -165,7 +155,6 @@ module.exports = {
         "url": "https://www.microcenter.com/search/search_results.aspx?N=4294945779&NTK=all&page=1&cat=SSD-(Solid-State-Drives)-:-MicroCenter"
     }];
 
-    let items = await ScrapeHandler.scrape(urls, "ssd", store, search_term);
-    return items;
+    return await ScrapeHandler.scrape(urls, "ssd", store, search_term);
   }
 };
