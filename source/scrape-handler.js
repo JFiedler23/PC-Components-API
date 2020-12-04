@@ -1,14 +1,34 @@
-const Newegg_Scrape = require('./newegg-scrape.js');
-const Micro_Center_Scrape = require('./microcenter-scrape.js');
+const newegg_scrape = require('./newegg-scrape.js');
+const microcenter_scrape = require('./microcenter-scrape.js');
 
 async function getAllStores(urls, part_type){
   let items = [];
   for(let i = 0; i < urls.length; i++){
     if(urls[i].store === "newegg"){
-      items = [...items, ...await Newegg_Scrape.getItems(urls[i].url, part_type)];
+      items = [...items, ...await newegg_scrape.getItems(urls[i].url, part_type)];
     }
     else if(urls[i].store === "microcenter"){
-      items = [...items, ...await Micro_Center_Scrape.getItems(urls[i].url, part_type)];
+      items = [...items, ...await microcenter_scrape.getItems(urls[i].url, part_type)];
+    }
+  }
+  return items;
+}
+
+async function getNewegg(urls, part_type){
+  let items = [];
+  for(let i = 0; i < urls.length; i++){
+    if(urls[i].store === "newegg"){
+      items = [...items, ...await newegg_scrape.getItems(urls[i].url, part_type)];
+    }
+  }
+  return items;
+}
+
+async function getMicrocenter(urls, part_type){
+  let items = [];
+  for(let i = 0; i < urls.length; i++){
+    if(urls[i].store === "microcenter"){
+      items = [...items, ...await microcenter_scrape.getItems(urls[i].url, part_type)];
     }
   }
   return items;
@@ -31,7 +51,12 @@ module.exports = {
       case "all":
         let items = await getAllStores(urls, part_type);
         return (search_term === "none") ? items : items.filter(search(search_term.toLowerCase()));
-        break;
+      case "newegg":
+        let neweggItems = await getNewegg(urls, part_type);
+        return (search_term === "none") ? neweggItems : neweggItems.filter(search(search_term.toLowerCase()));
+      case "microcenter":
+        let microcenterItems = await getMicrocenter(urls, part_type);
+        return (search_term === "none") ? microcenterItems : microcenterItems.filter(search(search_term.toLowerCase()));
     }
   }
 };
