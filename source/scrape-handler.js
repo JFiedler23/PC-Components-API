@@ -30,7 +30,7 @@ module.exports = {
     switch(store){
       case "all":
         let items = await getAllStores(urls, part_type);
-        return (search_term === "none") ? items : items.filter(search(search_term));
+        return (search_term === "none") ? items : items.filter(search(search_term.toLowerCase()));
         break;
     }
   }
