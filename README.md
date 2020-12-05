@@ -28,3 +28,18 @@ const pc_component = require("./pc-components")
   
 pc_component.gpu().then(items => console.log("Number of items scraped: " + items.length));
 ```
+This will pull all gpu parts from the supported sites.
+
+The items array returned from the function call is an array of objects containing valuable information about a component.
+
+Each object has the following properites
+
+```
+let item = {
+            "title": part_title,
+            "price": part_price,
+            "store": store_name,
+            "img_url": image_url,
+            "type": part_type
+          }
+```
