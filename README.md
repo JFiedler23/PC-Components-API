@@ -57,9 +57,26 @@ let item = {
 Each component function can take two optional paramters,
 
 ```
-pc_component.gpu(*store_name*, *search_term*)
+pc_component.gpu(store_name, search_term)
 ```
 
 Where *store_name* is a string representing one of the supported stores, and *search_term* is string representing a search term.
 
-The search implementation is very simply and works best with company names like Asus or Nvidia.
+### Supported PC component functions
+
+- gpu()
+- cpu()
+- memory()
+- amd_motherboards()
+- intel_motherboards()
+- power()
+- cases()
+- case_fans()
+- cpu_fans()
+- hdd()
+- ssd()
+
+### Supported stores
+
+- Neweggg
+- Micro Center
