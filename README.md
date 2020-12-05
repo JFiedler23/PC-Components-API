@@ -57,7 +57,7 @@ let item = {
 Each component function can take two optional paramters,
 
 ```
-pc_component.gpu(store_name, search_term)
+pc_component.gpu(store_name="all", search_term="none")
 ```
 
 Where *store_name* is a string representing one of the supported stores, and *search_term* is string representing a search term.
