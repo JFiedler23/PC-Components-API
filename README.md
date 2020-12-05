@@ -18,7 +18,7 @@ Step 1. Download or clone the repository
  - To clone the repository, open up your terminal/command line and type `git clone https://github.com/JFiedler23/PC-Components-API.git`
  
 
-# Basic Usage
+## Basic Usage
 
 Every PC component has it's own function that can be called to pull listings for that component.
 
@@ -39,7 +39,7 @@ This will pull all gpu parts from the supported sites.
 
 The items array returned from the function call is an array of objects containing valuable information about a component.
 
-## Object properties
+### Object properties
 
 Each object has the following properites
 
@@ -52,7 +52,7 @@ let item = {
             "type": part_type
           }
 ```
-## Function call breakdown
+### Function call breakdown
 
 Each component function can take two optional paramters,
 
