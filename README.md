@@ -1,4 +1,5 @@
 # PC-Components-API
+
  Allows the user to pull PC component information from various e-commerce sites.
  
 ## Getting Started
@@ -15,3 +16,13 @@ Step 1. Download or clone the repository
 
  - To download the repository, click the green code button at the top of the repository page. Then click "Download Zip"
  - To clone the repository, open up your terminal/command line and type `git clone https://github.com/JFiedler23/PC-Components-API.git`
+ 
+
+# Basic Usage
+
+Every PC component has it's own function that can be called to pull listings for that component.
+For example,
+ 
+  const pc_component = require("./pc-components")
+  
+  pc_component.gpu().then(items => console.log("Number of items scraped: " + items.length));
