@@ -20,17 +20,26 @@ Step 1. Download or clone the repository
 
 # Basic Usage
 
-Every PC component has it's own function that can be called to pull listings for that component.<br>
+Every PC component has it's own function that can be called to pull listings for that component.
+
+The process of getting the components is asynchronous so the function calls will return promises.
+
 For example,
 
 ```
 const pc_component = require("./pc-components")
   
-pc_component.gpu().then(items => console.log("Number of items scraped: " + items.length));
+pc_component.gpu().then(items => { 
+
+ console.log("Number of items scraped: " + items.length)
+
+});
 ```
 This will pull all gpu parts from the supported sites.
 
 The items array returned from the function call is an array of objects containing valuable information about a component.
+
+## Object properties
 
 Each object has the following properites
 
@@ -43,3 +52,14 @@ let item = {
             "type": part_type
           }
 ```
+## Function call breakdown
+
+Each component function can take two optional paramters,
+
+```
+pc_component.gpu(*store_name*, *search_term*)
+```
+
+Where *store_name* is a string representing one of the supported stores, and *search_term* is string representing a search term.
+
+The search implementation is very simply and works best with company names like Asus or Nvidia.
