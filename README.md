@@ -22,7 +22,9 @@ Step 1. Download or clone the repository
 
 Every PC component has it's own function that can be called to pull listings for that component.
 For example,
- 
-  const pc_component = require("./pc-components")
+
+```
+const pc_component = require("./pc-components")
   
-  pc_component.gpu().then(items => console.log("Number of items scraped: " + items.length));
+pc_component.gpu().then(items => console.log("Number of items scraped: " + items.length));
+```
