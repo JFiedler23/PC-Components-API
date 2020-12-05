@@ -13,4 +13,4 @@ These instructions will get you a copy of the project up and running on your loc
 
 1. Download or clone the repository
 
- - To download the repository, click the green code button at the top of the repository page. Then click "Download Zip"
+ > To download the repository, click the green code button at the top of the repository page. Then click "Download Zip"
