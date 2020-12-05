@@ -79,4 +79,19 @@ Where *store_name* is a string representing one of the supported stores, and *se
 ### Supported stores
 
 - Neweggg
-- Micro Center
+- MicroCenter
+
+## Built With
+
+ - Javascript using Node.js
+ - Axios
+ - Cheerio
+ - [Visual Studio Code](https://code.visualstudio.com/)
+ 
+## Authors
+
+ - John Fiedler - [JFiedler23](https://github.com/JFiedler23)
+ 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/JFiedler23/PC-Components-API/blob/main/LICENSE) file for details
