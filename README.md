@@ -20,7 +20,7 @@ Step 1. Download or clone the repository
 
 # Basic Usage
 
-Every PC component has it's own function that can be called to pull listings for that component.
+Every PC component has it's own function that can be called to pull listings for that component.<br>
 For example,
 
 ```
